@@ -456,11 +456,9 @@ class RNGoogleFit {
   }
 
   getHeartRateSamples(options, callback) {
-    const startDate = Date.parse(options.startDate)
-    const endDate = Date.parse(options.endDate)
     googleFit.getHeartRateSamples(
-      startDate,
-      endDate,
+      options.startDate,
+      options.endDate,
       msg => {
         callback(msg, false)
       },
