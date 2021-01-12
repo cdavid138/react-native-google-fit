@@ -46,7 +46,7 @@ public class HeartrateHistory {
     private DataSet Dataset;
     private DataType dataType;
 
-    private static final String TAG = "Weights History";
+    private static final String TAG = "Heart Rate History";
 
     public HeartrateHistory(ReactContext reactContext, GoogleFitManager googleFitManager, DataType dataType){
         this.mReactContext = reactContext;
@@ -55,7 +55,7 @@ public class HeartrateHistory {
     }
 
     public HeartrateHistory(ReactContext reactContext, GoogleFitManager googleFitManager){
-        this(reactContext, googleFitManager, DataType.TYPE_WEIGHT);
+        this(reactContext, googleFitManager, DataType.TYPE_HEART_RATE_BPM);
     }
 
     public void setDataType(DataType dataType) {
@@ -101,7 +101,7 @@ public class HeartrateHistory {
 
     public boolean save(ReadableMap sample) {
         this.Dataset = createDataForRequest(
-                this.dataType,    // for height, it would be DataType.TYPE_HEIGHT
+                this.dataType,    // for heart rate, it would be DataType.TYPE_HEIGHT
                 DataSource.TYPE_RAW,
                 sample.getDouble("value"),                  // weight in kgs, height in metrs
                 (long)sample.getDouble("date"),              // start time
